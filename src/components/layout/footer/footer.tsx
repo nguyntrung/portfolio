@@ -51,10 +51,10 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className="w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center bg-card backdrop-blur-md shadow-sm transition-all hover:scale-110"
+                    className="w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center bg-card backdrop-blur-md shadow-sm transition-all hover:scale-110 duration-300"
                   >
                     <Icon
-                      className="w-4 h-4 sm:w-5 sm:h-5 transition-colors duration-300 group-hover:brightness-110"
+                      className="w-4 h-4 sm:w-5 sm:h-5 transition-colors group-hover:brightness-110"
                       style={color ? { color } : {}}
                     />
                   </Link>
@@ -75,7 +75,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="no-underline"
               >
-                <Card className="bg-card p-6 sm:p-8 flex flex-col items-center justify-center text-center cursor-pointer hover:scale-105 transition-all duration-300">
+                <Card className="bg-card p-6 sm:p-8 flex flex-col items-center justify-center text-center cursor-pointer hover:scale-105 transition-all duration-600">
                   <Globe className="w-6 h-6 sm:w-8 sm:h-8 mb-3 sm:mb-4" />
                   <p className="font-medium text-sm sm:text-base">nguyentrung.com</p>
                 </Card>
@@ -84,7 +84,7 @@ export default function Footer() {
 
             <motion.div variants={scaleIn}>
               <Link href="mailto:nguyentrung060503@gmail.com" className="no-underline">
-                <Card className="bg-card p-6 sm:p-8 flex flex-col items-center justify-center text-center cursor-pointer hover:scale-105 transition-all duration-300">
+                <Card className="bg-card p-6 sm:p-8 flex flex-col items-center justify-center text-center cursor-pointer hover:scale-105 transition-all duration-600">
                   <Mail className="w-6 h-6 sm:w-8 sm:h-8 mb-3 sm:mb-4" />
                   <p className="font-medium text-sm sm:text-base break-all">nguyentrung060503@gmail.com</p>
                 </Card>
