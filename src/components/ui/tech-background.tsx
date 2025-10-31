@@ -118,3 +118,4 @@ export function StickyTechBackground({
     </motion.div>
   )
 }
+

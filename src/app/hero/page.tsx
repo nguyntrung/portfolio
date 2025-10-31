@@ -4,9 +4,11 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import ImageProfile from "../../../public/profile.jpg"
+import Reactlogo from "../../../public/tech-image/react.svg"
 import { useInView } from "@/hooks/useInView"
 import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer } from "@/lib/animations"
 import { FloatingElement, ParallaxElement } from "@/components/ui/scroll-animations"
+import Typewriter from "typewriter-effect"
 
 export default function Page() {
   const { ref: heroRef, isInView: heroInView } = useInView<HTMLDivElement>({ threshold: 0.2 });
@@ -15,8 +17,16 @@ export default function Page() {
   return (
     <section id="hero" className="min-h-screen flex items-center py-8 sm:py-12 lg:py-16 relative overflow-hidden">
       {/* Floating Background Elements */}
-      <div className="absolute top-20 left-10 w-4 h-4 bg-primary/20 rounded-full">
+      <div className="absolute top-20 right-10 w-32 h-32 rounded-full">
         <FloatingElement delay={0} />
+        <Image
+          src={Reactlogo}
+          alt="Code Icon"
+          width={32}
+          height={32}
+          sizes="(max-width: 640px) 32px, 64px"
+          className="absolute -top-6 -left-6 w-23 h-23 opacity-30 animate-spin"
+        />
       </div>
       <div className="absolute top-40 right-20 w-6 h-6 bg-secondary/30 rounded-full">
         <FloatingElement delay={0.5} />
@@ -51,9 +61,22 @@ export default function Page() {
             <br />
             <motion.span
               variants={fadeInLeft}
-              className="block"
+              className="block text-primary"
             >
-              Web Developer
+              <Typewriter
+                options={{
+                  strings: [
+                    "Web Developer",
+                    "Frontend Engineer",
+                    "Backend Engineer",
+                  ],
+                  autoStart: true,
+                  loop: true,
+                  delay: 75,
+                  deleteSpeed: 30,
+                  cursor: "_",
+                }}
+              />
             </motion.span>
           </motion.h1>
 

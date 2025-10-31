@@ -34,7 +34,7 @@ export async function POST(req: Request) {
                             <tr>
                                 <td style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; text-align: center; border-radius: 8px 8px 0 0;">
                                     <h1 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 600;">
-                                        📬 New Contact Message
+                                        New Contact Message
                                     </h1>
                                     <p style="margin: 8px 0 0 0; color: #e0e7ff; font-size: 14px;">
                                         Someone reached out through your portfolio
