@@ -1,5 +1,7 @@
 import MilkteaApp from "../../public/project-image/milktea-app.png"
 
+export const projectDescription = "Explore projects I've worked on to showcase my skills and experience in web development."
+
 export const projects = [
   {
     id: 1,

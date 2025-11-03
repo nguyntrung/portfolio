@@ -1,21 +1,14 @@
 "use client"
 
-import { Mail, Globe, Instagram, Linkedin, Facebook, Github } from "lucide-react"
 import { Card } from "@/components/ui/card"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { useInView } from "@/hooks/useInView"
 import { fadeInUp, staggerContainer, scaleIn } from "@/lib/animations"
+import { socialLinks, contactLinks } from "@/data/social"
 
 export default function Footer() {
   const { ref, isInView } = useInView<HTMLElement>({ threshold: 0.1 });
-  
-  const socialLinks = [
-    { icon: Facebook, href: "https://www.facebook.com/nguyen.trung.587064/", label: "Facebook", color: "#1877F2" },
-    { icon: Instagram, href: "https://instagram.com/ntrung203/", label: "Instagram", color: "#E1306C" },
-    { icon: Linkedin, href: "https://linkedin.com/in/nguyentrung203", label: "LinkedIn", color: "#0077B5" },
-    { icon: Github, href: "https://github.com/nguyntrung", label: "GitHub" },
-  ]
 
   return (
     <motion.footer 
@@ -65,31 +58,30 @@ export default function Footer() {
 
           {/* --- Right Section --- */}
           <motion.div 
-            className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6"
+            className="col-span-2 grid grid-cols-2 gap-4 sm:gap-6"
             variants={staggerContainer}
           >
-            <motion.div variants={scaleIn}>
-              <Link
-                href="https://nguyentrung.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="no-underline"
-              >
-                <Card className="bg-card p-6 sm:p-8 flex flex-col items-center justify-center text-center cursor-pointer hover:scale-105 transition-all duration-600">
-                  <Globe className="w-6 h-6 sm:w-8 sm:h-8 mb-3 sm:mb-4" />
-                  <p className="font-medium text-sm sm:text-base">nguyentrung.com</p>
-                </Card>
-              </Link>
-            </motion.div>
-
-            <motion.div variants={scaleIn}>
-              <Link href="mailto:nguyentrung060503@gmail.com" className="no-underline">
-                <Card className="bg-card p-6 sm:p-8 flex flex-col items-center justify-center text-center cursor-pointer hover:scale-105 transition-all duration-600">
-                  <Mail className="w-6 h-6 sm:w-8 sm:h-8 mb-3 sm:mb-4" />
-                  <p className="font-medium text-sm sm:text-base break-all">nguyentrung060503@gmail.com</p>
-                </Card>
-              </Link>
-            </motion.div>
+            {
+              contactLinks.map(({ icon: Icon, href, label }, index) => (
+                <motion.div
+                  key={label}
+                  variants={scaleIn}
+                  custom={index}
+                >
+                  <Link
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="no-underline"
+                  >
+                    <Card className="bg-card p-6 sm:p-8 flex flex-col items-center justify-center text-center cursor-pointer hover:scale-105 transition-all duration-600">
+                      <Icon className="w-6 h-6 sm:w-8 sm:h-8 mb-3 sm:mb-4" />
+                      <p className="font-medium text-sm sm:text-base">{label}</p>
+                    </Card>
+                  </Link>
+                </motion.div>
+              ))
+            }
           </motion.div>
         </div>
 

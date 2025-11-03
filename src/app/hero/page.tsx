@@ -9,6 +9,7 @@ import { useInView } from "@/hooks/useInView"
 import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer } from "@/lib/animations"
 import { FloatingElement, ParallaxElement } from "@/components/ui/scroll-animations"
 import Typewriter from "typewriter-effect"
+import { profile } from "@/data/profile"
 
 export default function Page() {
   const { ref: heroRef, isInView: heroInView } = useInView<HTMLDivElement>({ threshold: 0.2 });
@@ -50,14 +51,14 @@ export default function Page() {
             variants={fadeInUp}
             className="font-medium tracking-wide text-sm sm:text-base"
           >
-            HELLO EVERYONE
+            {profile.greeting}
           </motion.p>
 
           <motion.h1 
             variants={fadeInUp}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-balance leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-balance leading-tight"
           >
-            Im Nguyen Trung,
+            Im {profile.name},
             <br />
             <motion.span
               variants={fadeInLeft}
@@ -65,11 +66,7 @@ export default function Page() {
             >
               <Typewriter
                 options={{
-                  strings: [
-                    "Web Developer",
-                    "Frontend Engineer",
-                    "Backend Engineer",
-                  ],
+                  strings: [...profile.tagline],
                   autoStart: true,
                   loop: true,
                   delay: 75,
@@ -84,8 +81,7 @@ export default function Page() {
             variants={fadeInUp}
             className="text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0"
           >
-            Building dynamic and responsive web applications with a passion for clean code and intuitive user
-            experience.
+            {profile.description}
           </motion.p>
 
           <motion.div

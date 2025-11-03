@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 
 import { Lightbox } from "@/components/ui/lightbox"
 import { ProjectCard } from "./_components/card-project"
-import { projects } from "@/data/project"
+import { projectDescription, projects } from "@/data/project"
 import { useInView } from "@/hooks/useInView"
 import { fadeInUp, staggerContainer } from "@/lib/animations"
 
@@ -35,9 +35,7 @@ export default function ProjectsPage() {
       >
         <motion.div className="text-center space-y-2" variants={fadeInUp}>
           <h2 className="text-2xl sm:text-3xl font-bold">Projects</h2>
-          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4">
-            Explore projects I&apos;ve worked on
-          </p>
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4">{projectDescription}</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">

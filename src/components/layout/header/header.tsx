@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link";
-import { ModeToggle } from "./mode-toggle";
+import { ModeToggle } from "./_components/mode-toggle";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -121,6 +121,16 @@ export default function Header() {
         <AvatarImage src="D:/Portfolio/portfolio/public/logo-dark.svg" />
         <AvatarFallback>NT</AvatarFallback>
       </Avatar> */}
+      {/* Mobile Menu Button */}
+      <Button
+        variant="ghost"
+        size="sm"
+        className="md:hidden p-2"
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+      >
+        {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+      </Button>
+
       <Link
         href="#hero"
         onClick={(e) => handleClick(e, "#hero")}
@@ -138,38 +148,24 @@ export default function Header() {
             
             return (
               <NavigationMenuItem key={item.title}>
-                <Link 
+                <NavigationMenuLink
                   href={item.href} 
-                  passHref 
                   onClick={(e) => handleClick(e, item.href)}
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "relative group transition-all duration-300",
+                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-full",
+                    "hover:bg-primary/10 dark:hover:bg-primary/20",
+                    isActive && "bg-primary/20"
+                  )}
                 >
-                  <NavigationMenuLink 
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      "relative group transition-all duration-300",
-                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-full",
-                      "hover:bg-primary/10 dark:hover:bg-primary/20",
-                      isActive && "bg-primary/20"
-                    )}
-                  >
-                    {item.title}
-                  </NavigationMenuLink>
-                </Link>
+                  {item.title}
+                </NavigationMenuLink>
               </NavigationMenuItem>
             )
           })}
         </NavigationMenuList>
       </NavigationMenu>
-
-      {/* Mobile Menu Button */}
-      <Button
-        variant="ghost"
-        size="sm"
-        className="md:hidden p-2"
-        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-      >
-        {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-      </Button>
 
       <div className="focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 rounded-full transition-all">
         <ModeToggle />

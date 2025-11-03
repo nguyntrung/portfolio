@@ -3,11 +3,12 @@
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card"
-import { TechCardProps, techStack } from "@/data/tech-stack"
+import { skillDescription, TechCardProps, techStack } from "@/data/skills"
 import { useInView } from "@/hooks/useInView"
 import { fadeInUp, staggerContainer, scaleIn } from "@/lib/animations"
+import Link from "next/link"
 
-function TechCard({ title, imageUrl, description }: TechCardProps) {
+function TechCard({ title, imageUrl, websiteUrl, description }: TechCardProps) {
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
@@ -39,7 +40,17 @@ function TechCard({ title, imageUrl, description }: TechCardProps) {
           />
           {title}
         </h4>
-        <p className="text-muted-foreground">{description}</p>
+        <p className="flex flex-col text-muted-foreground">
+          {description}
+          <Link
+            href={websiteUrl || ''}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+          >
+            Learn more
+          </Link>
+        </p>
       </HoverCardContent>
     </HoverCard>
   )
@@ -47,6 +58,8 @@ function TechCard({ title, imageUrl, description }: TechCardProps) {
 
 export default function TechStack() {
   const { ref, isInView } = useInView<HTMLDivElement>({ threshold: 0.1 });
+
+  console.log(techStack)
 
   return (
     <motion.div 
@@ -58,9 +71,7 @@ export default function TechStack() {
     >
       <motion.div className="text-center space-y-2" variants={fadeInUp}>
         <h2 className="text-2xl sm:text-3xl font-bold">Tech Stack</h2>
-        <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4">
-          Skilled in developing full-stack web applications using modern technologies like React, Next.js, Node.js, and TypeScript.
-        </p>
+        <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4">{skillDescription}</p>
       </motion.div>
       <motion.div 
         className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 md:gap-8"
@@ -75,6 +86,7 @@ export default function TechStack() {
             <TechCard
               title={tech.title}
               imageUrl={tech.imageUrl}
+              websiteUrl={tech.websiteUrl}
               description={tech.description}
             />
           </motion.div>
