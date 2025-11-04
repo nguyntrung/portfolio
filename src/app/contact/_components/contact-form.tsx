@@ -68,10 +68,16 @@ export function ContactForm() {
   return (
     <motion.div 
       ref={ref}
-      className="w-full py-8 sm:py-12 px-4 sm:px-6 lg:px-8"
+      className="w-full"
       variants={staggerContainer}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
+      style={{
+        width: "100%",
+        maxWidth: "72rem",
+        margin: "0 auto",
+        padding: "2rem 1rem",
+      }}
     >
       <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8">
         {/* Header */}

@@ -47,7 +47,7 @@ export default function Footer() {
                     className="w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center bg-card backdrop-blur-md shadow-sm transition-all hover:scale-110 duration-300"
                   >
                     <Icon
-                      className="w-4 h-4 sm:w-5 sm:h-5 transition-colors group-hover:brightness-110"
+                      className="w-5 h-5 transition-colors group-hover:brightness-110"
                       style={color ? { color } : {}}
                     />
                   </Link>
@@ -58,7 +58,7 @@ export default function Footer() {
 
           {/* --- Right Section --- */}
           <motion.div 
-            className="col-span-2 grid grid-cols-2 gap-4 sm:gap-6"
+            className="col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6"
             variants={staggerContainer}
           >
             {
@@ -74,8 +74,11 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     className="no-underline"
                   >
-                    <Card className="bg-card p-6 sm:p-8 flex flex-col items-center justify-center text-center cursor-pointer hover:scale-105 transition-all duration-600">
-                      <Icon className="w-6 h-6 sm:w-8 sm:h-8 mb-3 sm:mb-4" />
+                    <Card className="bg-card p-4 sm:p-8 flex flex-row sm:flex-col
+                      items-start sm:items-center justify-center sm:text-center
+                      cursor-pointer rounded-full sm:rounded-xl hover:scale-105 transition-all duration-600"
+                    >
+                      <Icon className="w-6 h-6 sm:w-8 sm:h-8 mb-0 sm:mb-4" />
                       <p className="font-medium text-sm sm:text-base">{label}</p>
                     </Card>
                   </Link>
