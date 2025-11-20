@@ -92,7 +92,7 @@ export default function Footer() {
           className="mt-8 sm:mt-12 text-center text-xs sm:text-sm text-muted-foreground"
           variants={fadeInUp}
         >
-          © {new Date().getFullYear()} Nguyen Thanh Trung. All rights reserved.
+          © 2025 Nguyen Thanh Trung. All rights reserved.
         </motion.div>
       </div>
     </motion.footer>
