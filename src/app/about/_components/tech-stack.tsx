@@ -59,8 +59,6 @@ function TechCard({ title, imageUrl, websiteUrl, description }: TechCardProps) {
 export default function TechStack() {
   const { ref, isInView } = useInView<HTMLDivElement>({ threshold: 0.1 });
 
-  console.log(techStack)
-
   return (
     <motion.div 
       ref={ref}
